@@ -16,9 +16,12 @@ Cerința 1: Matricea mod de proiectare a unui obiect de tridimensional,este o ma
            1.Un viewport este fereastra a unui ecran în care sunt proiectate elementele grafice.Viewport-ul ca OpenGL are rolul de a plasa toate elementele grafice proiectate din sistemul de coordonate 3D în coordonatele 2D ale ecranului.
            Un viewport funcționează pe patru parametri coordonatele (x ,y),lățimea(width) și înălțimea și are rolul de acoperi întreaga fereastră,
            
-           2.FPS este folosit pentru functia Run pentru a procesa mai repede,updates per second este mai important pentru actualizare cadrului. FPS este folosit la
-           din punct de vedere a bibliotecii OpenGL pentru a afișa rezultatul schimbând buffer-ul prin intermediul funcției SwapBuffers(). Optimizarea secenei și a          tehncilor de redare face ca valoarea FPS să rămână constantă și ridicată.
-           3.Metoda OnUpdateFrame() este apelată de mai multe ori pentru fiecare ciclu de execuție a programului, are rolul de a actualiza logica și rulează înainte de redarea efectivă a scenei pe ecran.
+           2.FPS este folosit pentru functia Run pentru a procesa mai repede,updates per second este mai important pentru 
+ actualizare cadrului. FPS este folosit la
+           din punct de vedere a bibliotecii OpenGL pentru a afișa rezultatul schimbând buffer-ul prin intermediul funcției 
+ SwapBuffers(). Optimizarea secenei și a          tehncilor de redare face ca valoarea FPS să rămână constantă și ridicată.
+           3.Metoda OnUpdateFrame() este apelată de mai multe ori pentru fiecare ciclu de execuție a programului, are rolul 
+ de a actualiza logica și rulează înainte de redarea efectivă a scenei pe ecran.
            4.Modul de randare imediat(Immediate Mode Rendering) este cea mai veche tehnică de bază de randare din OpenGL. Cu 
   trecerea timpului modul de randare imediat devine irelevant pentru versiunile mai recente de OpenGL. În C#,OpenTK pentru 
   OpenGL,se folosește GL.Begin(tipul primitiv grafic) pentru a selecta una dintre primitivele 
