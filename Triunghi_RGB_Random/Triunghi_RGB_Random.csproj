@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2283F264-96B4-45E6-A822-FCBF178EE578}</ProjectGuid>
+    <ProjectGuid>{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RusuAlexandru_temaCLI_lab3</RootNamespace>
-    <AssemblyName>RusuAlexandru_temaCLI_lab3</AssemblyName>
+    <RootNamespace>Triunghi_RGB_Random</RootNamespace>
+    <AssemblyName>Triunghi_RGB_Random</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Windows3D.cs" />
+    <Compile Include="TriunghiApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

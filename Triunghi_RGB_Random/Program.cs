@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RusuAlexandru_temaCLI_lab3
+namespace Triunghi_RGB_Random
 {
     class Program
     {
         [STAThread]
         static void Main(string[] args)
         {
-            using (Windows3D ex = new Windows3D())
+            using (TriunghiApp ex =new TriunghiApp())
             {
-                ex.Run(30.0, 0.0);
-
+                ex.Run(30.0,0.0);
             }
         }
     }

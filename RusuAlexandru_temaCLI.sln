@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RusuAlexandru_temaCLI_lab3"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL_conn_ImmediateMode", "OpenGL_conn_ImmediateMode\OpenGL_conn_ImmediateMode.csproj", "{F04916F8-1623-4AB3-978E-90D2541092B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triunghi_RGB_Random", "Triunghi_RGB_Random\Triunghi_RGB_Random.csproj", "{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F04916F8-1623-4AB3-978E-90D2541092B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04916F8-1623-4AB3-978E-90D2541092B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04916F8-1623-4AB3-978E-90D2541092B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
