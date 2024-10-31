@@ -62,7 +62,8 @@ namespace OpenGL_conn_ImmediateMode
 
             GL.Clear(ClearBufferMask.ColorBufferBit);
             GL.Clear(ClearBufferMask.DepthBufferBit);
-
+            //Triunghiuri   
+            //Se afiseaza doua triunghiuri
             GL.Begin(PrimitiveType.Triangles);
 
             GL.Color3(Color.Red);
