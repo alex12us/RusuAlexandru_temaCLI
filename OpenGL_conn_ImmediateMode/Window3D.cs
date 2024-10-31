@@ -66,16 +66,16 @@ namespace OpenGL_conn_ImmediateMode
             //Se afiseaza doua triunghiuri
             GL.Begin(PrimitiveType.Triangles);
 
-            GL.Color3(Color.Red);
+            GL.Color3(Color.Red);  //am selectat culoarea rosie
             GL.Vertex3(-1.0f, 0.0f,0.0f);
             GL.Vertex3(1.0f,0.0f, 0.0f);
 
-            GL.Color3(Color.Green);
+            GL.Color3(Color.Green);   // verde
             GL.Vertex3(0.0f, -1.0f, 0.0f);
             GL.Vertex3(0.0f, 1.0f, 0.0f);
 
 
-            GL.Color3(Color.Blue);
+            GL.Color3(Color.Blue);  //albastru
             GL.Vertex3(0.0f, 0.0f, -1.0f);
             GL.Vertex3(0.0f, 0.0f, 1.0f);
 
