@@ -24,8 +24,8 @@ namespace Triunghi_RGB_Random
             int genR = r.Next(0, 255);
             int genG = r.Next(0, 255);
             int genB = r.Next(0, 255);
-            int genA=r.Next(0,255); // alpha  este transparenta
-            Color col = Color.FromArgb(genA,genR, genG, genB);
+            
+            Color col = Color.FromArgb(genR, genG, genB);
             return col;
         }
         public Color GetGradientColor(Color startColor,Color endColor,float factor)

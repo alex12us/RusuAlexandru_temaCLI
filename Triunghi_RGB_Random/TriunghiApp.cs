@@ -18,8 +18,8 @@ namespace Triunghi_RGB_Random
         private KeyboardState previousKeyboard;
         private Color startColor ;   //declarare start culoare
        private Color endColor ;    //declarare sfarsit culoare
-        private float factor;
-        private Color triangleColor;           // Culoarea curentă a triunghiului
+        private float globalFactor = 0.0f;
+                   // Culoarea curentă a triunghiului
         private float alphaChannel;
         public TriunghiApp():base(800,600,new GraphicsMode(32, 8, 0, 24))
         {
@@ -29,8 +29,8 @@ namespace Triunghi_RGB_Random
              this.endColor = Color.Blue;
 
            
-            factor = 0.0f;
-            vertices = LoadVertices("Triunghiuri.txt");
+
+            vertices = LoadVertices("Triunghiuri.txt");//varfuri care memoreaza date  din fisiere
             vertexColors = new List<Color>(vertices.Count);
             // Inițializare culori pentru fiecare vertex
             for (int i = 0; i < vertices.Count; i++)
@@ -40,17 +40,7 @@ namespace Triunghi_RGB_Random
 
         }
 
-    protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            GL.ClearColor(Color.White);
-            GL.Enable(EnableCap.DepthTest);
-
-
-            GL.Hint(HintTarget.PointSmoothHint, HintMode.Nicest);
-        GL.Hint(HintTarget.PolygonSmoothHint, HintMode.Nicest);
-
-        }
+  
         private List<Vector3> LoadVertices(string NumeFisier)
         {
             var vertices = new List<Vector3>();      // o lista de varfuri
@@ -71,12 +61,14 @@ namespace Triunghi_RGB_Random
             { Exit(); }
             if (thisKeyboard[Key.W] && !previousKeyboard[Key.W])
             {
-                Color gradientColor = rando.GetGradientColor(startColor, endColor, factor);
+                Color gradientColor = rando.GetGradientColor(startColor, endColor, globalFactor);
                GL.ClearColor(new Color4(gradientColor.R, gradientColor.G, gradientColor.B, gradientColor.A));
+                globalFactor += 0.1f;
+                if (globalFactor > 1.0f) globalFactor = 0.0f;  //resetare globalFactor
                 for (int i = 0; i < vertexColors.Count; i++)
                 {
-                    factor = (float)i / (vertexColors.Count - 1);// Factorul cuprins in intervalul [0,1]
-                    vertexColors[i] = rando.GetGradientColor(startColor, endColor, factor);
+                   float vertexFactor = (float)i / (vertexColors.Count - 1);// Factorul cuprins in intervalul [0,1]
+                    vertexColors[i] = rando.GetGradientColor(startColor, endColor, vertexFactor);
                     Console.WriteLine($"Vertex {i + 1} (Gradient) - R: {vertexColors[i].R}, G: {vertexColors[i].G}, B: {vertexColors[i].B}, A: {vertexColors[i].A}");
                 }
             }
@@ -85,6 +77,10 @@ namespace Triunghi_RGB_Random
                 alphaChannel = alphaChannel == 1.0f ? 0.5f : 1.0f; // Alternează între opac și semi-transparent
                 
             }
+            if (thisKeyboard[Key.X] && !previousKeyboard[Key.X])
+            {
+                DiscoMode();   //modifica culorile gradiente
+            }
         
             if (thisKeyboard[Key.A] && !previousKeyboard[Key.A])
             {
@@ -92,34 +88,13 @@ namespace Triunghi_RGB_Random
                 for (int i = 0; i < vertexColors.Count; i++)
                 {
                     vertexColors[i] = rando.GetRandomColor();
-                    Console.WriteLine($"Vertex {i + 1} - R: {vertexColors[i].R}, G: {vertexColors[i].G}, B: {vertexColors[i].B}, A: {vertexColors[i].A}");
+                    Console.WriteLine($"Vertex {i + 1} - R: {vertexColors[i].R}, G: {vertexColors[i].G}, B: {vertexColors[i].B}");
                 }
             }
 
             previousKeyboard=thisKeyboard;
         }
-        protected override void OnMouseMove(MouseMoveEventArgs e)
-        {
-            angleX += e.XDelta * 0.1f;    //Detecteaza miscarile mouse-lui
-            angleY += e.YDelta * 0.1f;
-        }
-
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            //se seteaza viewport-ul
-            GL.Viewport(0, 0, this.Width, this.Height);
-
-            Matrix4 perspective = Matrix4.CreatePerspectiveFieldOfView(MathHelper.PiOver4, (float)Width / (float)Height, 1, 256);
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadMatrix(ref perspective);
-
-            //se seteaza camera
-            //initial a fost (30,30,30,...)
-            Matrix4 lookat = Matrix4.LookAt(30, 30, 30, 0, 0, 0, 0, 1, 0);
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadMatrix(ref lookat);
-        }
+      
        public void DrawTriunghi()
         {
             GL.Begin(PrimitiveType.Triangles);
@@ -138,6 +113,13 @@ namespace Triunghi_RGB_Random
             GL.End();
 
         }
+        public void DiscoMode()
+        {
+            for (int i = 0; i < vertexColors.Count; i++)
+            {
+                vertexColors[i] = rando.GetRandomColor();
+            }
+        }    //DiscoMode
         protected override void OnRenderFrame(FrameEventArgs e)
         {
             base.OnRenderFrame(e);
