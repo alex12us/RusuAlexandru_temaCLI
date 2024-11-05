@@ -120,7 +120,7 @@ namespace Triunghi_RGB_Random
                 vertexColors[i] = rando.GetRandomColor();
             }
         }    //DiscoMode
-        protected override void OnRenderFrame(FrameEventArgs e)
+        protected override void OnRenderFrame(FrameEventArgs e)   //Randarea
         {
             base.OnRenderFrame(e);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
