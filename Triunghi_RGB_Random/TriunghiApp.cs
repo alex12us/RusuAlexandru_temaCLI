@@ -7,7 +7,10 @@ using System.Collections.Generic;
 using OpenTK.Input;
 using System.IO;
 namespace Triunghi_RGB_Random
-{
+{   
+    /// <summary>
+    /// Laboratorul3_EGC,3133a
+    /// </summary>
    class TriunghiApp:GameWindow
     {
         private List<Vector3> vertices;  //am declarat o lista de vector3 pentru varfuri
