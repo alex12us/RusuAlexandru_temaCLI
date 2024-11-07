@@ -61,6 +61,12 @@ namespace RusuAlexandru_temaCLI_lab3
             /*1.Care este ordinea de desenare a vertexurilor pentru aceste metode
 (orar sau anti-orar)? Desenați axele de coordonate din aplicația template folosind un singur apel GL.Begin().*/
             ///Axele x,y,z
+       //3.
+             GL.PointSize(5.0f);//mareste sau micsoreaza marimea punctului print metodaToogleSizePoint();
+            GL.LineWidth(3.0f);//mareste sau micsoreaza grosimea unei linii prin metoda TogggleSizeLine()
+                     //Nu functioneaza in interiorul functiei GL,Begin() cele doua functii PointSize() si LineWidth() pentru ca
+                     //ar distiorsiona imaginea creata de programator
+                     //GL.PointSize() si GL.LineWidth() sa fie puse inainte de GL.Begin(PrimitiveTypes.x),x-forma
             GL.Begin(PrimitiveType.Lines);   //metoda anti-orar
              //axa x;
             GL.Color3(Color.Red);
