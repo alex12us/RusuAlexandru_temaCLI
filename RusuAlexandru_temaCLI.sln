@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL_conn_ImmediateMode",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triunghi_RGB_Random", "Triunghi_RGB_Random\Triunghi_RGB_Random.csproj", "{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerinta4Lab3", "Cerinta4Lab3\Cerinta4Lab3.csproj", "{9B4F433A-7682-42A1-8F16-1EAA873653AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF6C6C0-1E5B-4811-828A-BDDF3922407A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4F433A-7682-42A1-8F16-1EAA873653AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4F433A-7682-42A1-8F16-1EAA873653AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4F433A-7682-42A1-8F16-1EAA873653AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4F433A-7682-42A1-8F16-1EAA873653AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
