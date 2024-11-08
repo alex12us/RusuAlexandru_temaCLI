@@ -45,9 +45,25 @@ namespace Laboratorul_04
 
             return vec;
         }
+
+        //RandomInt fara parametirii
         public int RandomInt()
         {
             int i = r.Next(LOW_INT_VAL, HIGH_INT_VAL);
+
+            return i;
+        }
+        public int RandomInt(int minVal,int maxVal)
+        {
+            int i = r.Next(minVal,maxVal);
+
+            return i;
+        }
+
+        //RandomInt cu variabila maxval(valoarea maxima
+        public int RandomInt(int maxval)
+        {
+            int i = r.Next(maxval);
 
             return i;
         }

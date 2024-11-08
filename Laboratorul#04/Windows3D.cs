@@ -19,19 +19,21 @@ namespace Laboratorul_04
         private readonly Axes axe;
         private readonly Grid grid;
         private readonly Camera3DIsometric cam;
-
-
+        private readonly Obiect objx;
+        private List<Obiect> ploaie_de_obiecte;
         //implicit
         private readonly Color DEFAULT_BKG_COLOR = Color.FromArgb(49, 50, 51);
         public Windows3D():base(800,600,new GraphicsMode(32,24,0,8))
         {
-
+            DisplayHelp();
             VSync = VSyncMode.On;
             //initializari
             rando = new Randomizer();
             axe = new Axes();
             grid = new Grid();
             cam = new Camera3DIsometric();
+            objx = new Obiect();
+            ploaie_de_obiecte = new List<Obiect>();
         }
         protected override void OnResize(EventArgs e)
         {
@@ -70,6 +72,60 @@ namespace Laboratorul_04
             {
                 Exit();
             }
+            if (currentKeyboard[Key.H] && !previousKeyboard[Key.H])
+            {
+                DisplayHelp();
+            }
+
+            if (currentKeyboard[Key.R] && !previousKeyboard[Key.R])
+            {
+                GL.ClearColor(DEFAULT_BKG_COLOR);
+                ax.Show();
+                grid.Show();
+            }
+
+            if (currentKeyboard[Key.K] && !previousKeyboard[Key.K])
+            {
+                ax.ToggleVisibility();
+            }
+
+            if (currentKeyboard[Key.B] && !previousKeyboard[Key.B])
+            {
+                GL.ClearColor(rando.RandomColor());
+            }
+
+            if (currentKeyboard[Key.V] && !previousKeyboard[Key.V])
+            {
+                grid.ToggleVisibility();
+            }
+
+            // controlarea camerei(isometric mode)
+            if (currentKeyboard[Key.W])
+            {
+                cam.MoveForward();
+            }
+            if (currentKeyboard[Key.S])
+            {
+                cam.MoveBackward();
+            }
+            if (currentKeyboard[Key.A])
+            {
+                cam.MoveLeft();
+            }
+            if (currentKeyboard[Key.D])
+            {
+                cam.MoveRight();
+            }
+            if (currentKeyboard[Key.Q])
+            {
+                cam.MoveUp();
+            }
+            if (currentKeyboard[Key.E])
+            {
+                cam.MoveDown();
+            }
+            previousKeyboard = currentKeyboard;
+            previousMouse = currentMouse;
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -78,7 +134,21 @@ namespace Laboratorul_04
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             axe.Draw();
             grid.Draw();
+            objx.Draw();
             SwapBuffers();
         }
+        private void DisplayHelp()
+        {
+            Console.WriteLine("\n      MENIU");
+            Console.WriteLine(" (H) - meniul");
+            Console.WriteLine(" (ESC) - parasire aplicatie");
+            Console.WriteLine(" (K) - schimbare vizibilitate sistem de axe");
+            Console.WriteLine(" (R) - resteaza scena la valori implicite");
+            Console.WriteLine(" (B) - schimbare culoare de fundal");
+            Console.WriteLine(" (V) - schimbare vizibilitate linii");
+            Console.WriteLine(" (W,A,S,D) - deplasare camera (izometric)");
+            Console.WriteLine("(Q,E)-sunt folosit pentru deplasare in jos sau in sus");
+        }
+
     }
 }
