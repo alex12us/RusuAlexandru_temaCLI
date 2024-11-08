@@ -80,13 +80,13 @@ namespace Laboratorul_04
             if (currentKeyboard[Key.R] && !previousKeyboard[Key.R])
             {
                 GL.ClearColor(DEFAULT_BKG_COLOR);
-                ax.Show();
+                axe.Show();
                 grid.Show();
             }
 
             if (currentKeyboard[Key.K] && !previousKeyboard[Key.K])
             {
-                ax.ToggleVisibility();
+                axe.ToggleVisibility();
             }
 
             if (currentKeyboard[Key.B] && !previousKeyboard[Key.B])
