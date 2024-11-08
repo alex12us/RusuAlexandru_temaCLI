@@ -91,5 +91,15 @@ namespace RusuAlexandru_temaCLI_lab3
         /* 2.Ce este anti-aliasing? Prezentați această tehnică pe scurt.
          * Anti-aliasing este o tehnica de a netezi marginea zimtata a unei linii 
          */
+
+        /*10. Ce efect are utilizarea unei culori diferite pentru fiecare vertex 
+           atunci când desenați o linie sau un triunghi în modul strip?
+        \O linie in modul strip pentru fiecare vertex culoare se schimba transformand linii strip in 
+        culori de gradient
+          Triunghiul in modul strip duce la un efect vizual continuu deoarce fiecare tranzitie de culori acopera un triunghi
+          cu gradient.
+        Efectul de tranzitie a culorilor este interpolarea automata care imbunateste efectele vizuale astfel incat
+         benzile de linii si triunghiuri  sa fie mai dinamice si mai colorate.
+        */
     }
 }

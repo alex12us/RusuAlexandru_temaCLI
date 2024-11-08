@@ -91,13 +91,19 @@ namespace Cerinta4Lab3
 
             GL.Color3(Color.Green);
             GL.Vertex3(-4.5f, -4.5f, 0.0f);
+            GL.Color3(Color.DarkOrchid);
             GL.Vertex3(4.5f, -0.5f, 0.0f);
+            GL.Color3(Color.DarkSeaGreen);
             GL.Vertex3(4.5f, 2.5f, 0.0f);
+            GL.Color3(Color.DarkViolet);
             GL.Vertex3(-4.5f, 4.5f, 0.0f);
 
             GL.Vertex3(5.5f, 5.5f, 0.0f);
+            GL.Color3(Color.Firebrick);
             GL.Vertex3(-5.5f, 5.5f, 0.0f);
+            GL.Color3(Color.FloralWhite);
             GL.Vertex3(-5.5f, -5.5f, 0.0f);
+            GL.Color3(Color.Indigo); 
             GL.Vertex3(5.5f, -5.5f, 0.0f);
 
             GL.End();
@@ -126,10 +132,15 @@ namespace Cerinta4Lab3
 
             GL.Color3(Color.Yellow);
             GL.Vertex3(-5.5f, -0.5f, 0.0f);
+            GL.Color3(Color.Azure);
             GL.Vertex3(-0.5f, 0.5f, 0.0f);
+            GL.Color3(Color.Crimson);
             GL.Vertex3(0.0f, -0.5f, 0.0f);
+            GL.Color3(Color.Chocolate);
             GL.Vertex3(0.0f, 5.5f, 0.0f);
+            GL.Color3(Color.DarkOrange);
             GL.Vertex3(0.5f, -0.5f, 0.0f);
+            GL.Color3(Color.DarkMagenta);
             GL.Vertex3(5.5f, 5.5f, 0.0f);
 
             GL.End();
