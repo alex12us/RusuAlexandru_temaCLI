@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+///RusuAlexandruCLI
 namespace Laboratorul_04
 {
-    internal class Program
+    class Program
     {
+        [STAThread]   
+        
         static void Main(string[] args)
         {
+        
+             
+        
         }
+
     }
 }
