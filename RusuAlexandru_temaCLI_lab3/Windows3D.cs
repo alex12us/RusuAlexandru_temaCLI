@@ -91,7 +91,17 @@ namespace RusuAlexandru_temaCLI_lab3
         /* 2.Ce este anti-aliasing? Prezentați această tehnică pe scurt.
          * Anti-aliasing este o tehnica de a netezi marginea zimtata a unei linii 
          */
-
+        /*6.In shapes.exe de la Nate Robbins se folosesc culori diferite selectate pe a doua linii de lungimi diferite
+         prin culori selectate in desenarea obiectelor 3D afisat pe display (2D) prin axa x0y. Avantajul este de a distinge culorile
+        7.Gradient de culoare este tranziția treptată între două sau mai multe culori.
+        Este folosit în graficp pentru a adăuga adâncime,textură și un aspect vizual mai plăcut
+        suprafețelor și obiectelor. Gradientul este liniar,radial și de toate formele este 
+        întâlnit în efecte speciale,aplicații 3D și mai ales fundaluri.
+          În Open GL ,interpolarea de culori și shader-e duc la obținerea unui gradient de culoare
+        Interpolarea în OpenGL este automata și se obține un gradient de  culoare 
+        într-un mod flexibil și performant.
+         
+         */
         /*10. Ce efect are utilizarea unei culori diferite pentru fiecare vertex 
            atunci când desenați o linie sau un triunghi în modul strip?
         \O linie in modul strip pentru fiecare vertex culoare se schimba transformand linii strip in 

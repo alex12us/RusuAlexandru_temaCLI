@@ -9,7 +9,7 @@ using System.IO;
 namespace Triunghi_RGB_Random
 {   
     /// <summary>
-    /// Laboratorul3_EGC,3133a
+    /// Laboratorul3_EGC,3133a   //Cerintele 8 si 9
     /// </summary>
    class TriunghiApp:GameWindow
     {

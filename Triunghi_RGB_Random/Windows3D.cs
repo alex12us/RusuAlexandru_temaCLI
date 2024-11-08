@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
-namespace Triunghi_RGB_Random
+namespace Triunghi_RGB_Random   ///Cerintele 8 si 9
 {
     class Windows3D:GameWindow
     {

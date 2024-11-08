@@ -9,7 +9,8 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Input;
 namespace OpenGL_conn_ImmediateMode
-{
+{  
+    //Cerinta 3-- OpenGL_conn_ImmediateMode
     class Window3D : GameWindow
     {
 
