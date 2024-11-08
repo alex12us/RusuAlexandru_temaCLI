@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Input;
-
+//8 noiembrie 2024
 namespace Laboratorul_04
 {
     class Windows3D:GameWindow

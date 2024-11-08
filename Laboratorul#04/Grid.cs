@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using OpenTK.Graphics.OpenGL;
 namespace Laboratorul_04
-{
+{   //8 noiembrie 2024
+
      class Grid
     {
         private readonly Color colorisation;

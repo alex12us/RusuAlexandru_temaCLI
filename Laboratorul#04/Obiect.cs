@@ -9,7 +9,8 @@ using OpenTK.Graphics.OpenGL;
 using OpenTK.Graphics;
 using System.Security.AccessControl;
 namespace Laboratorul_04
-{
+{   
+    //8 noiembrie 2024
     class Obiect
     {
         private bool visibility;

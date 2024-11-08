@@ -9,7 +9,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 namespace Laboratorul_04
-{
+{     //8 noiembrie 2024,Vineri,Sapt 6
     class Axes
     {
         private bool visibility_line;

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Laboratorul_04
-{
+{    //8 noiembrie 2024,Vineri
      class Randomizer
     {
         private Random r;

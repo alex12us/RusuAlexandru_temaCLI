@@ -8,7 +8,7 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 
 namespace Laboratorul_04
-{
+{   //8 noiembrie 2024
    class Camera3DIsometric
     {
         private Vector3 eye;
