@@ -20,12 +20,12 @@ namespace Laboratorul_04
         private Randomizer rando;
         
         private const int GRAVITY_OFFSET =  1;
-        public Obiect()
+        public Obiect(bool gravity_status)
         {
             rando = new Randomizer();
             colour = rando.RandomColor();
             visibility = true;
-            isGravityBound = true;
+            isGravityBound = gravity_status;
 
             int size_offset = rando.RandomInt(3,7);
             int height_offset = rando.RandomInt(40, 60);
@@ -58,7 +58,30 @@ namespace Laboratorul_04
 
             }
         }
-        public void ToggleVisibility()
+        public void UpdatePosition(bool gravity_status)
+        {
+            if(visibility && gravity_status && !GroundCollisionDetected())
+            {
+                for(int i=0;i<coordList.Count;i++)
+                {
+                    coordList[i] = new Vector3(coordList[i].X, coordList[i].Y-GRAVITY_OFFSET, coordList[i].Z);
+
+                }
+            }
+        }
+
+        public bool GroundCollisionDetected()
+        {
+            foreach(Vector3 v in coordList)
+            {
+                if (v.Y <= 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+      /*  public void ToggleVisibility()
         {
             visibility = !visibility;
         }
@@ -73,6 +96,6 @@ namespace Laboratorul_04
         private void UnsetGravity()
         {
             isGravityBound = false;
-        }
+        }*/
     }
 }

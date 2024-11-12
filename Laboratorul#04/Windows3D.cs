@@ -19,10 +19,11 @@ namespace Laboratorul_04
         private readonly Axes axe;
         private readonly Grid grid;
         private readonly Camera3DIsometric cam;
-        private readonly Obiect objx;
+       
         private List<Obiect> ploaie_de_obiecte;
         //implicit
         private readonly Color DEFAULT_BKG_COLOR = Color.FromArgb(49, 50, 51);
+        private bool GRAVITY = true;
         public Windows3D():base(800,600,new GraphicsMode(32,24,0,8))
         {
             DisplayHelp();
@@ -32,7 +33,6 @@ namespace Laboratorul_04
             axe = new Axes();
             grid = new Grid();
             cam = new Camera3DIsometric();
-            objx = new Obiect();
             ploaie_de_obiecte = new List<Obiect>();
         }
         protected override void OnResize(EventArgs e)
@@ -124,6 +124,31 @@ namespace Laboratorul_04
             {
                 cam.MoveDown();
             }
+            if (currentKeyboard[Key.G] && !previousKeyboard[Key.G])
+            {
+                foreach(Obiect obj in ploaie_de_obiecte)
+                {
+                    GRAVITY = !GRAVITY;
+                }
+               
+            }
+            //raspandire
+            if (currentMouse[MouseButton.Left] && !previousMouse[MouseButton.Left])
+            {
+                ploaie_de_obiecte.Add(new Obiect(GRAVITY));
+              
+            }
+            //stergere
+            if (currentMouse[MouseButton.Right]&& !previousMouse[MouseButton.Right])
+            {
+                ploaie_de_obiecte.Clear();
+            }
+            foreach(Obiect obj in ploaie_de_obiecte)
+            {
+                obj.UpdatePosition(GRAVITY);
+            }
+            //stergere
+
             previousKeyboard = currentKeyboard;
             previousMouse = currentMouse;
         }
@@ -134,7 +159,10 @@ namespace Laboratorul_04
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             axe.Draw();
             grid.Draw();
-            objx.Draw();
+            foreach (Obiect obj in ploaie_de_obiecte)
+            {
+                obj.Draw();
+            }
             SwapBuffers();
         }
         private void DisplayHelp()
@@ -148,6 +176,9 @@ namespace Laboratorul_04
             Console.WriteLine(" (V) - schimbare vizibilitate linii");
             Console.WriteLine(" (W,A,S,D) - deplasare camera (izometric)");
             Console.WriteLine("(Q,E)-sunt folosit pentru deplasare in jos sau in sus");
+            Console.WriteLine("(G)-manipuleaa gravitatia");
+            Console.WriteLine("Mouse clic stanga --generarea unui obiect nou la o inaltime aleatoare");
+            Console.WriteLine("Mouse clic dreapta -- curata lista de obiecte");
         }
 
     }
