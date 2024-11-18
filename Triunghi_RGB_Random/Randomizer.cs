@@ -15,7 +15,7 @@ namespace Triunghi_RGB_Random
         private Random r;
         public Randomizer()
         {
-            r = new Random();
+            r = new Random();  //random variabila
             
         }
        
