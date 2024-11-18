@@ -53,12 +53,12 @@ namespace Cerinta4Lab3
             }
             
 
-            previousKeyboard = currentKeyboard;  ///tasta curenta
+            previousKeyboard = currentKeyboard; 
 
         }
 
 
-        protected override void OnRenderFrame(FrameEventArgs e)
+        protected override void OnRenderFrame(FrameEventArgs e)  //randarea
         {
             base.OnRenderFrame(e);
             GL.Clear(ClearBufferMask.DepthBufferBit | ClearBufferMask.ColorBufferBit);
