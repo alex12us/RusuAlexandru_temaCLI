@@ -53,7 +53,7 @@ namespace Cerinta4Lab3
             }
             
 
-            previousKeyboard = currentKeyboard;
+            previousKeyboard = currentKeyboard;  ///tasta curenta
 
         }
 
