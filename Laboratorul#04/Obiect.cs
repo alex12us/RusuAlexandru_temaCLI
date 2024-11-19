@@ -40,8 +40,17 @@ namespace Laboratorul_04
             coordList.Add(new Vector3(1 * size_offset+radial_offset,1*size_offset+height_offset,0*size_offset+radial_offset));
             coordList.Add(new Vector3(0 *size_offset+radial_offset, 1 *size_offset+height_offset, 1*size_offset+radial_offset));
             coordList.Add(new Vector3(0*size_offset+radial_offset, 1*size_offset+height_offset, 0*size_offset+radial_offset));
+            coordList.Add(new Vector3(0 * size_offset + radial_offset, 0 * size_offset + height_offset, 1 * size_offset + radial_offset));
+            coordList.Add(new Vector3(0 * size_offset + radial_offset, 0 * size_offset + height_offset, 0 * size_offset + radial_offset));
+            coordList.Add(new Vector3(0 * size_offset + radial_offset, 1 * size_offset + height_offset, 1 * size_offset + radial_offset));
+            coordList.Add(new Vector3(1* size_offset + radial_offset, 1 * size_offset + height_offset, 1 * size_offset + radial_offset));
+            coordList.Add(new Vector3(0 * size_offset + radial_offset, 0 * size_offset + height_offset, 1 * size_offset + radial_offset));
+            coordList.Add(new Vector3(1 * size_offset + radial_offset, 0 * size_offset + height_offset, 0 * size_offset + radial_offset));
+
 
         }
+
+        
         public void Draw()
         {
 
