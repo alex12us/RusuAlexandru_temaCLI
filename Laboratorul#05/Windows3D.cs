@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
+using OpenTK.Input;
 namespace Laboratorul_05
 {
     class Windows3D:GameWindow
     {
+        private KeyboardState previousKeyboard;
+        private MouseState previousMouse;
         public Windows3D() : base(600, 800, new GraphicsMode(32, 24, 0, 8))
         {
             VSync = VSyncMode.On;
@@ -47,12 +50,20 @@ namespace Laboratorul_05
         {
             base.OnUpdateFrame(e);
 
+            KeyboardState currentKeyboard = Keyboard.GetState();
+            MouseState currentMouse = Mouse.GetState();
+            if (currentKeyboard[Key.Escape])
+            {
+                Exit();
+            }
 
 
         }
         protected override void OnRenderFrame(FrameEventArgs e)
         {
             base.OnRenderFrame(e);
+
+            SwapBuffers();
         }
 
     }
