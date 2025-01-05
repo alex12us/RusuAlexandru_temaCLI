@@ -14,6 +14,7 @@ namespace Laboratorul_05
     {
         private KeyboardState previousKeyboard;
         private MouseState previousMouse;
+        private readonly Color Background_DEFAULT = Color.FromArgb(49,50,51);
         public Windows3D() : base(600, 800, new GraphicsMode(32, 24, 0, 8))
         {
             VSync = VSyncMode.On;
@@ -21,7 +22,7 @@ namespace Laboratorul_05
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            GL.ClearColor(Color.DarkViolet);
+            GL.ClearColor(Background_DEFAULT);
 
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
@@ -62,7 +63,7 @@ namespace Laboratorul_05
         protected override void OnRenderFrame(FrameEventArgs e)
         {
             base.OnRenderFrame(e);
-
+            GL.Clear(ClearBufferMask.ColorBufferBit|ClearBufferMask.DepthBufferBit);
             SwapBuffers();
         }
 

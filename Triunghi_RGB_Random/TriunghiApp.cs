@@ -26,13 +26,14 @@ namespace Triunghi_RGB_Random
         private float alphaChannel;
         public TriunghiApp():base(800,600,new GraphicsMode(32, 8, 0, 24))
         {
+            DisplayHelp();
             VSync = VSyncMode.On;
             rando = new Randomizer();
-            this.startColor = Color.Red;
-             this.endColor = Color.Blue;
+            this.startColor = rando.GetRandomColor();
+             this.endColor = rando.GetRandomColor();
+            this.globalFactor = globalFactor;
 
-           
-
+         
             vertices = LoadVertices("Triunghiuri.txt");//varfuri care memoreaza date  din fisiere
             vertexColors = new List<Color>(vertices.Count);
             // Inițializare culori pentru fiecare vertex
@@ -88,13 +89,20 @@ namespace Triunghi_RGB_Random
             if (thisKeyboard[Key.A] && !previousKeyboard[Key.A])
             {
                 GL.ClearColor(rando.GetRandomColor());
+                
+            }
+            if (thisKeyboard[Key.C]&& !previousKeyboard[Key.C])
+            {
                 for (int i = 0; i < vertexColors.Count; i++)
                 {
                     vertexColors[i] = rando.GetRandomColor();
                     Console.WriteLine($"Vertex {i + 1} - R: {vertexColors[i].R}, G: {vertexColors[i].G}, B: {vertexColors[i].B}");
                 }
             }
-
+            if (thisKeyboard[Key.H] && !previousKeyboard[Key.H])
+            {
+                DisplayHelp();
+            }
             previousKeyboard=thisKeyboard;
         }
       
@@ -133,5 +141,17 @@ namespace Triunghi_RGB_Random
             DrawTriunghi();
             SwapBuffers();
         }
+        private void DisplayHelp()
+        {
+            Console.WriteLine("H-Help");
+            Console.WriteLine("W-Random Culoare");
+            Console.WriteLine("B-Transparenta");
+            Console.WriteLine("X-modifica gradientul culorilor");
+            Console.WriteLine("A-schimba culoarea de fundal");
+            Console.WriteLine("C-Schimba culorile triunghiului");
+            Console.WriteLine("Escape-Iesire");
+
+        }
+        
     }
 }
