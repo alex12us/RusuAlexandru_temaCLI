@@ -18,15 +18,7 @@ namespace Laboratorul_05
         {
             r = new Random();
         }
-        public Vector3 VerticesRandom()
-        {
-            float x = r.NextDouble() * 2 - 1;
-            float y = r.NextDouble() * 2 - 1;
-            float z = r.NextDouble() * 2 - 1;
-
-            Vector3 coord = new Vector3(x, y, z);
-            return coord;
-        }
+    
         public Color4 RandomColor()
         {
             int genR=r.Next(0,255);

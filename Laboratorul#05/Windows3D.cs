@@ -63,7 +63,7 @@ namespace Laboratorul_05
             }
             if (currentKeyboard[Key.C] && !previousKeyboard[Key.C])
             {
-                cubul.DrawCub();
+                cubul.Disco();
             }
             previousKeyboard = currentKeyboard;
 
@@ -72,6 +72,8 @@ namespace Laboratorul_05
         {
             base.OnRenderFrame(e);
             GL.Clear(ClearBufferMask.ColorBufferBit|ClearBufferMask.DepthBufferBit);
+           
+            cubul.DrawCub();
             SwapBuffers();
         }
 
