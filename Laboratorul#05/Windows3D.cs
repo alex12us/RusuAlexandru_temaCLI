@@ -15,9 +15,13 @@ namespace Laboratorul_05
         private KeyboardState previousKeyboard;
         private MouseState previousMouse;
         private readonly Color Background_DEFAULT = Color.FromArgb(49,50,51);
+        private Randomizer rando;
+        private Cub cubul;
         public Windows3D() : base(600, 800, new GraphicsMode(32, 24, 0, 8))
         {
             VSync = VSyncMode.On;
+            rando = new Randomizer();
+            cubul = new Cub();
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -57,7 +61,11 @@ namespace Laboratorul_05
             {
                 Exit();
             }
-
+            if (currentKeyboard[Key.C] && !previousKeyboard[Key.C])
+            {
+                cubul.DrawCub();
+            }
+            previousKeyboard = currentKeyboard;
 
         }
         protected override void OnRenderFrame(FrameEventArgs e)

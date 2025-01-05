@@ -1,10 +1,14 @@
-﻿using System;
+﻿using OpenTK.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using OpenTK;
+using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL;
+using System.Drawing.Drawing2D;
 namespace Laboratorul_05
 {
     class Randomizer
@@ -14,14 +18,26 @@ namespace Laboratorul_05
         {
             r = new Random();
         }
-        public Color RandomColor()
+        public Vector3 VerticesRandom()
+        {
+            float x = r.NextDouble() * 2 - 1;
+            float y = r.NextDouble() * 2 - 1;
+            float z = r.NextDouble() * 2 - 1;
+
+            Vector3 coord = new Vector3(x, y, z);
+            return coord;
+        }
+        public Color4 RandomColor()
         {
             int genR=r.Next(0,255);
             int genG=r.Next(0,255);
             int genB=r.Next(0,255);
-            Color col=Color.FromArgb(genR, genG, genB);
+            int genA=r.Next(127,255);
 
+           Color4 col= new Color4(genR,genG,genB,genA);
             return col;
         }
+
+       
     }
 }

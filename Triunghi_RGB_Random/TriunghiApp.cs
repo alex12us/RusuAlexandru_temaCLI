@@ -152,6 +152,5 @@ namespace Triunghi_RGB_Random
             Console.WriteLine("Escape-Iesire");
 
         }
-        
     }
 }
