@@ -13,20 +13,37 @@ namespace Laboratorul_05
    class Cub
     {
         private List<Vector3> vertices;
-        private List<Color4> faceColors;
+      //  private List<Color4> faceColors;
         private List<Color4> vertexColors;
         private Randomizer rando;
+        private List<Color4> paleteCulori;
 
         public Cub()
         {
             vertices = LoadVertices("cubulet.txt");
-            faceColors = new List<Color4>(6);
+           // faceColors = new List<Color4>(6);
             vertexColors = new List<Color4>(vertices.Count);
             rando= new Randomizer();
-    
-            for (int i = 0; i < 6; i++) {
-                faceColors.Add(rando.RandomColor());
+             InitializarePaletei();
+            for (int i = 0; i < vertices.Count; i++) {
+                vertexColors.Add(rando.RandomColor());
             }
+           /* for (int i = 0; i < 6; i++) { 
+                
+                faceColors.Add(rando.RandomColor());    
+            }*/
+
+        }
+        private void InitializarePaletei()
+        {
+            paleteCulori = new List<Color4>() {
+                new Color4(1.0f,0.0f,0.0f,1.0f),
+                new Color4(0.0f,1.0f,0.0f,1.0f),
+                new Color4(0.0f,0.0f,1.0f,1.0f),
+                new Color4(1.0f,1.0f,0.0f,1.0f),
+                new Color4(1.0f,0.0f,1.0f,1.0f),
+                new Color4(0.0f,1.0f,1.0f,1.0f)
+            };
 
         }
         private List<Vector3> LoadVertices(String NumeFisier)
@@ -45,20 +62,41 @@ namespace Laboratorul_05
             }
             return vertices;
         }
+        public void SetVertexColor(int vertexIndex,Color4 color) //setare la varful culorilor
+        {
+            if(vertexIndex>=0 && vertexIndex < vertices.Count)
+            {
+                vertexColors[vertexIndex] = color;
+                Console.WriteLine($"Vertex:{vertexIndex} RGB: R={color.R} G={color.G} B={color.B}");
+            }
+            else
+            {
+                Console.WriteLine($"Index {vertexIndex} este invalid pentru vertex");
+            }
+
+        }
        public void Disco()
         {
-            for(int i=0;i<6; i++)
+            for(int i=0;i<vertices.Count; i++)
             {
-                faceColors[i]=rando.RandomColor();    
+               vertexColors[i]=rando.RandomColor();
+                Console.WriteLine($"Vertex {i} RGB: R = {vertexColors[i].R}, G = {vertexColors[i].G}, B = {vertexColors[i].B}");
             }
         }
-        public void ChangeFaceColor(int facePos,Color4 color)
+        public void AplicarePaleteCulori()
+        {
+            for (int i = 0; i <vertices.Count; i++)
+            {
+                vertexColors[i] = paleteCulori[i % paleteCulori.Count];
+            }
+        }
+       /* public void ChangeFaceColor(int facePos,Color4 color)
         {
            if(facePos>=0 && facePos < faceColors.Count)
             {
                 faceColors[facePos] = color;
             }
-        }
+        } */
         public void DrawCub()
         {
             //Pozitia fiecarei fetei a unui cub
@@ -77,14 +115,12 @@ namespace Laboratorul_05
             GL.Begin(PrimitiveType.Quads);
             for (int i = 0; i < faceIndices.Length; i++)
             {
-                
-                GL.Color4(faceColors[i]);
-
-                foreach (int vertexIndex in faceIndices[i])
+               
+                for (int j= 0; j < faceIndices[i].Length;j++)
                 {
-                    
+                       int vertexIndex = faceIndices[i][j];
                         GL.Vertex3(vertices[vertexIndex]);
-                    
+                        GL.Color4(vertexColors[vertexIndex]);
                 }
             }
             GL.End();
