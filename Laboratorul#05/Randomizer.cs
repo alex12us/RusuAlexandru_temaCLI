@@ -24,9 +24,9 @@ namespace Laboratorul_05
             int genR=r.Next(0,255);
             int genG=r.Next(0,255);
             int genB=r.Next(0,255);
-            int genA=r.Next(127,255);
+            int genA=r.Next(0,255);
 
-           Color4 col= new Color4(genR,genG,genB,genA);
+           Color4 col= new Color4(genR/255f,genG/255f,genB / 255f,genA/255f);
             return col;
         }
 

@@ -15,13 +15,26 @@ namespace Laboratorul_05
         private KeyboardState previousKeyboard;
         private MouseState previousMouse;
         private readonly Color Background_DEFAULT = Color.FromArgb(49,50,51);
+     
+        private float position_X;
+        private float position_Y;
+        private float position_Z;
+        private float rotation_X=0.0f;
+        private float rotation_Y=0.0f;
+        private float rotation_X_axis = 0.0f;
+        private float rotation_Y_axis = 0.0f;
         private Randomizer rando;
         private Cub cubul;
+        private bool showCube = true;
+        private Axes axe;
+        private bool axesControl = true;
         public Windows3D() : base(600, 800, new GraphicsMode(32, 24, 0, 8))
         {
             VSync = VSyncMode.On;
             rando = new Randomizer();
             cubul = new Cub();
+            axe = new Axes();
+           
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -30,6 +43,9 @@ namespace Laboratorul_05
 
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
+
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactorSrc.SrcAlpha,BlendingFactorDest.OneMinusSrcAlpha);
 
 
             GL.Hint(HintTarget.PolygonSmoothHint, HintMode.Nicest);
@@ -61,6 +77,50 @@ namespace Laboratorul_05
             {
                 Exit();
             }
+            
+            if (currentKeyboard[Key.S])
+            {
+                position_Y -= 1f;
+
+            }
+            if (currentKeyboard[Key.A])
+            {
+                position_X -= 1f;
+            }
+            if (currentKeyboard[Key.D])
+            {
+
+                position_X += 1f;
+            }
+            if (currentKeyboard[Key.W])
+            {
+                position_Y += 1f;
+            }
+            if (currentKeyboard[Key.Q])
+            {
+                position_Z -=1f;
+            }
+            if (currentKeyboard[Key.E])
+            {
+                position_Z += 1f;
+            }
+            if (currentKeyboard[Key.Up])
+            {
+                rotation_Y += 1f;
+            }
+            if (currentKeyboard[Key.Down])
+            {
+                rotation_Y -= 1f;
+            }
+            if (currentKeyboard[Key.Left])
+            {
+                rotation_X -= 1f;
+            }
+            if (currentKeyboard[Key.Right])
+            {
+                rotation_X += 1f;
+            }
+          
             if (currentKeyboard[Key.C] && !previousKeyboard[Key.C])
             {
                 cubul.Disco();
@@ -72,8 +132,23 @@ namespace Laboratorul_05
         {
             base.OnRenderFrame(e);
             GL.Clear(ClearBufferMask.ColorBufferBit|ClearBufferMask.DepthBufferBit);
-           
-            cubul.DrawCub();
+     
+            if (showCube == true)
+            {
+                GL.PushMatrix();
+                GL.Translate(position_X, position_Y, position_Z);
+                GL.Rotate(rotation_Y, 0.0f, 0.0f, 1.0f);
+                GL.Rotate(rotation_X, 0.0f, 1.0f, 0.0f);
+                cubul.DrawCub();
+                GL.PopMatrix();
+            }
+            if (axesControl)
+            {
+ 
+                axe.Draw();
+
+            }
+            
             SwapBuffers();
         }
 
